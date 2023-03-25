@@ -1,33 +1,37 @@
+const api = require("express").Router();
 const { v4: uuidv4 } = require('uuid');
 const { readAndAppend, readFromFile, writeToFile } = require('../helpers/fsUtils');
-const app = require("express").Router();
+
 
 // Reads all notes from the DB
-app.get("/notes", (req, res) => {
-    readFromFile("../db/db.json")
+api.get("/notes", (req, res) => {
+    readFromFile("./db/db.json")
     .then(function (data) {
         res.json(JSON.parse(data));
     });
 });
 
 // Creates a new note with a unique ID
-app.post("/notes", (req, res) => {
-    let newNote = req.body
+api.post("/notes", (req, res) => {
+    let newNote = req.body;
     newNote.id = uuidv4();
-    readAndAppend(newNote, "../db/db.json").then(function (data) {
-      res.json(JSON.parse(data));
+    readAndAppend(newNote, "./db/db.json")
+    res.json(`Note added successfully :rocket:`)
+});
+
+// Deletes a note based on ID passed into params
+api.delete("/notes/:id", (req, res) => {
+    readFromFile("./db/db.json")
+    .then(function (data) {
+        let notes = JSON.parse(data);
+        for (let i=0; i < notes.length; i++) {
+            if (notes[i].id === req.params.id) {
+                notes.splice(i, 1);
+            }
+        }
+        writeToFile("./db/db.json", notes)
+        res.json(`Note removed successfully!`)
     });
 });
 
-app.delete("/notes/:id", (req, res) => {
-    readFromFile("../db/db.json")
-    .then(function (data) {
-        for (let i=0; i < data.length; i++) {
-            if (data[i].id === req.params.id) {
-                data.splice(i, 1);
-            }
-        }
-        writeToFile("../db/db.json", data)
-        res.json(JSON.parse(data))
-    });
-});
+module.exports = api;
