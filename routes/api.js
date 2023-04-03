@@ -7,7 +7,6 @@ const { readAndAppend, readFromFile, writeToFile } = require('../helpers/fsUtils
 api.get("/notes", (req, res) => {
     readFromFile("./db/db.json")
     .then(function (data) {
-        console.log(JSON.parse(data))
         res.json(JSON.parse(data));
     });
 });
