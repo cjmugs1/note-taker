@@ -8,7 +8,7 @@ const dbPath = "./db/db.json";
 api.get("/notes", (req, res) => {
     readFromFile(dbPath)
     .then(function (data) {
-        res.json(data);
+        res.json(JSON.parse(data));
     })
     .catch(err => console.log(err));
 });
