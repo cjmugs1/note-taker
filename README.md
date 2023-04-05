@@ -1,12 +1,14 @@
 # Note-Taker
-Use the command line to generate an html page to display your project and its team members!
-
-## Important Info  
-*The generated HTML file can be found in the dist/ folder. You can copy and paste this file into your projects website!*
-*To see a video walk-through of someone using this repo to generate an HTML page, click the video-tutorial link.*
+Take small notes or save to do-list items in your web browser. The notes will persist, even after you leave the site!
 <br/><br/>
-## Tutorial Video
 
+## Deployed Application
+[Note Taker](https://guarded-sands-07079.herokuapp.com/notes)
+<br/><br/>
+
+## Local Usage Info 
+If you intend to clone the repo and run the application locally, simply run *npm (/yarn/-your package manager-) i* and then *npm start* in the root directory.    
+This will run the application on your local host server (3001).
 <br/><br/>
 ## Challenge Description | User Story
 ### **AS A Small Business Owner**  
@@ -29,5 +31,5 @@ THEN that note appears in the right-hand column.
 WHEN I click on the Write icon in the navigation at the top of the page,  
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column.  
 <br/>
-## Generated Team Profile Screenshot
-![generatedREADME](./assets/images/generatedHTML.JPG)
+## Note Taker Screenshot
+![noteTaker](./public/assets/note-taker-screenshot.jpg)
