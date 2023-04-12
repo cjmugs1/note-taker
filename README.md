@@ -32,4 +32,4 @@ WHEN I click on the Write icon in the navigation at the top of the page,
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column.  
 <br/>
 ## Note Taker Screenshot
-![noteTaker](./public/assets/note-taker-screenshot.jpg)
+![Note Taker](./public/assets/note-taker-screenshot.JPG)
